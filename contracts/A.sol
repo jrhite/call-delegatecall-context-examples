@@ -10,7 +10,7 @@ contract A {
 
     constructor(address _b) {
         b = _b;
-        console.log("Deploying C at address:", address(this));
+        console.log("Deploying A at address:", address(this));
     }
 
     function a() payable external {
