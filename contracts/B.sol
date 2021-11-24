@@ -40,7 +40,9 @@ contract B {
         // (bool success, ) = address(c).delegatecall{ value: msg.value / 2 }(abi.encodeWithSignature("delegatecallC()"));
         // require(success, "Failure in address(c).delegatecall{ value: msg.value / 2 }(abi.encodeWithSignature(\"delegatecallC()\"))");
 
-        (bool success, ) = address(c).delegatecall(abi.encodeWithSignature("delegatecallC()")); 
+        (bool success, bytes memory result) = address(c).delegatecall(abi.encodeWithSignature("delegatecallC()"));
+        // console.log("B.delegatecallB: success =", success);
+        // console.log("B.delegatecallB: result =", abi.decode(result, ...));
         require(success, "Failure in address(c).delegatecall(abi.encodeWithSignature(\"delegatecallC()\"))");
     }
 
